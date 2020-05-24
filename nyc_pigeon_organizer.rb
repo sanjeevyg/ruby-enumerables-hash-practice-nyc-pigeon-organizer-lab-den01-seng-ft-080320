@@ -3,22 +3,22 @@ require 'pry'
 def nyc_pigeon_organizer(data)
   # write your code here!
   
-  name_1 = []
+  new_data = {}
   data.each {|key, value|
-     name_1 << value
+    value.each {|key_1, value_1|
+      value_1.each {|element|
+        if !new_data[element]
+          new_data[element] = {}
+        end
+        if !new_data[element][key]
+          new_data[element][key] = []
+        end
+        new_data[element][key] << (key_1.to_s)
+      }
+    }
   }
-  name_2 = []
-  count_1 = 0
-  while count_1 < name_1.length do
-    binding.pry
-    count_2 = 0
-    while count_2 < name_1[count_1].length do 
-      name_2 << name_1[count_1]
-      count_2 += 0
-    end 
-    count_1 += 1 
-  end 
-  p name_1
+  p new_data
 end
+
 
 
