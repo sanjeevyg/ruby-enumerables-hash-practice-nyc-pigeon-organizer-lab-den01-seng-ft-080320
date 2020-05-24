@@ -10,6 +10,7 @@ def nyc_pigeon_organizer(data)
         if !new_data[element]
           new_data[element] = {}
         end
+        binding.pry
         if !new_data[element][key]
           new_data[element][key] = []
         end
